@@ -25,3 +25,8 @@ El bot apenas está en su fase inicial, pero con el tiempo, pienso integrarle m�
   - Sistema de Música
   - Webscrapping para extraer promociones de Amazon
  
+### Lenguajes y herramientas utilizadas
+
+<img align="left" alt="Python" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
+<img align="left" alt="Nextcord" width="50px" style="padding-right:10px;" src="https://github.com/nextcord/nextcord/blob/master/assets/logo.svg"/>
+<img align="left" alt="SQL Lite" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"/>
