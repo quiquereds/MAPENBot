@@ -1,1 +1,1 @@
-TOKEN = ("MTA0MjEzNDk1MzAxOTg0NjY5Nw.GfcFnz.vpd-ipkhRSuu_hnvz_KRo6jH2-UIT8rZmrh4eQ")
+TOKEN = ("YOUR DISCORD TOKEN HERE")
