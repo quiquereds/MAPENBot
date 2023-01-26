@@ -26,12 +26,6 @@ async def on_ready():
         await cursor.execute("CREATE TABLE IF NOT EXISTS warns(member INTEGER, reason TEXT, time INTEGER, guild INTEGER)")
     await bot.db.commit()
 
-'''
-for fn in os.listdir('./modulos'):
-    if fn.endswith('.py'):
-        bot.load_extension(f"modulos.{fn[:-3]}")
-'''
-
 # Comando para verificar el estatus del bot
 @bot.slash_command(name="ping",description= "Verifica que el bot funcione correctamente 🏓")
 async def hello(interaction: nextcord.Interaction):
