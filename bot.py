@@ -141,9 +141,6 @@ async def addWarn(ctx, reason, member):
     # Guardamos cambios en la tabla
     await bot.db.commit()
 
-
-#@bot.slash_command(name= "warn", description= "❌ Genera una advertencia para el usuario")
-
 # Creamos el comando para hacer warn a un miembro con el prefijo del bot
 @bot.command(description= "Alerta a un usuario")
 # Definimos el comando que va a recibir el contexto, la mención del miembro y la razón de warn
@@ -185,7 +182,6 @@ async def warn(ctx: commands.Context, member: nextcord.Member, *, reason: str= "
     # El bot envía el embed creado anteriormente
     await channel.send(embed = embed)
 
-#@bot.slash_command(name= "quitarwarn", description= "🗑️ Elimina una advertencia del usuario")
 
 # Creamos el comando para eliminar las advertencias de un miembro
 @bot.command(description= "Quita alerta a un usuario")
