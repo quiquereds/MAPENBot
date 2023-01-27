@@ -1,7 +1,7 @@
 import nextcord
 import aiosqlite
 import asyncio
-from botPrueba import bot
+from bot import bot
 import datetime
 from nextcord.ext import commands
 
@@ -221,6 +221,7 @@ class Moderacion(commands.Cog):
                 channel = bot.get_channel(1050230733588942868)
                 await channel.send(embed = embed)
         await bot.db.commit()
+    
 
 # Declaramos el método setup que va a cargar el cog (clase Moderacion)
 def setup(bot):
