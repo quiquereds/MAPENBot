@@ -66,7 +66,7 @@ class Moderacion(commands.Cog):
         # Se crea una variable para almacenar el ID del canal (guild) de bienvenida
         channel = bot.get_channel(986683116171182101)
         # El bot envía una imágen personalizada del servidor antes del embed
-        await channel.send(file=nextcord.File("./media/holaMAPENTech.png"))
+        await channel.send(file=nextcord.File("holaMAPENTech.png"))
         # El bot envía el embed creado al canal definido
         await channel.send(embed = embed)
 
@@ -96,7 +96,7 @@ class Moderacion(commands.Cog):
         # Se crea una variable para almacenar el ID del canal de despedidas
         channel = bot.get_channel(1012084418615201822)
         # El bot envía una imágen personalizada del servidor antes del embed
-        await channel.send(file=nextcord.File("./media/adiosMAPENTech.png"))
+        await channel.send(file=nextcord.File("adiosMAPENTech.png"))
         # El bot envía el embed creado al canal definido
         await channel.send(embed = embed)
 
@@ -137,7 +137,7 @@ class Moderacion(commands.Cog):
         # Se coloca un pie de página al embed con la información del sitio en donde se generó la imágen
         channel = bot.get_channel(1050231800443715666)
         # El bot envía una imágen personalizada antes del embed
-        await channel.send(file=nextcord.File("./media/banMAPENTech.png"))
+        await channel.send(file=nextcord.File("banMAPENTech.png"))
         # Se envía el embed
         await channel.send(embed = embed)
 
@@ -171,9 +171,12 @@ class Moderacion(commands.Cog):
         )
 
         channel = bot.get_channel(1050230733588942868)
-        await channel.send(file=nextcord.File("./media/warnMAPENTech.png"))
+        #await channel.send(file=nextcord.File("./media/warnMAPENTech.png"))
+        await channel.send(file = nextcord.File("warnMAPENTech.png"))
         await channel.send(embed = embed)
     
+
+
     # Se crea el comando para quitar los warn del usuario
     @commands.command(description= "Quitar alerta a un usuario")
     # Definimos el comando que va a recibir el contextp del mensaje y al miembro

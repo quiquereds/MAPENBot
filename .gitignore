@@ -4,3 +4,5 @@ botPrueba.py
 Pipfile
 Pipfile.lock
 __pycache__
+config.py
+warns.db
