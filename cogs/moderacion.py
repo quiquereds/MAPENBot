@@ -142,6 +142,7 @@ class Moderacion(commands.Cog):
         await channel.send(embed = embed)
 
     # Comando para hacer warn a un usuario
+    @commands.has_role(1041426879044915250)
     @commands.command(description= "Alerta a un usuario")
     # Definimos el comando que va a recibir el contexto, la mención del miembro y la razón del warn
     async def warn(self, ctx: commands.Context, member: nextcord.Member, *, reason: str = "Sin motivo"):
@@ -178,6 +179,7 @@ class Moderacion(commands.Cog):
 
 
     # Se crea el comando para quitar los warn del usuario
+    @commands.has_role(1041426879044915250)
     @commands.command(description= "Quitar alerta a un usuario")
     # Definimos el comando que va a recibir el contextp del mensaje y al miembro
     async def quitarwarn(self, ctx: commands.Context, member: nextcord.Member):
