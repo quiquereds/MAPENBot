@@ -175,7 +175,19 @@ class Moderacion(commands.Cog):
         #await channel.send(file=nextcord.File("./media/warnMAPENTech.png"))
         await channel.send(file = nextcord.File("warnMAPENTech.png"))
         await channel.send(embed = embed)
-    
+
+        # Detectamos si el miembro tiene más de 3 advertencias para expulsarlo automáticamente
+        async with bot.db.cursor() as cursor:
+            # Una vez conectados a la tabla de warns ejecutamos un comando SQL para devolver la cantidad de advertencias que tiene el miembro
+            await cursor.execute('SELECT COUNT(*) reason FROM warns WHERE member = ? AND guild = ?', (member.id, ctx.guild.id))
+            # Capturamos el resultado en la variable data
+            data = await cursor.fetchone()
+            # Convertimos el resultado a tipo de dato entero
+            data = data[0]
+            if data > 3:
+                # Si el miembro tiene más de 3 advertencias, automáticamente se hace ban eliminando sus warns
+                await cursor.execute('DELETE FROM warns WHERE member = ? AND guild = ?', (member.id, ctx.guild.id))
+                await member.ban(reason= "Exceso de warns", delete_message_days= 3)
 
 
     # Se crea el comando para quitar los warn del usuario
@@ -224,6 +236,60 @@ class Moderacion(commands.Cog):
                 await channel.send(embed = embed)
         await bot.db.commit()
     
+
+    # Creamos un comando para mostrar las advertencias de los usuarios 
+    @commands.command(description = "Muestra los warns de un usuario")
+    # Definimos el comando que va a recibir la instrucción self, el contexto y la mención del miembro
+    async def warns(self, ctx: commands.Context, member: nextcord.Member):
+        # Utilizamos un objeto cursor para ejecutar instrucciones SQL
+        async with bot.db.cursor() as cursor:
+            # Ejecutamos una instrucción SQL a la tabla warns para obtener todos los warns del miembro
+            await cursor.execute('SELECT reason, time FROM warns WHERE member = ? AND guild = ?', (member.id, ctx.guild.id))
+            # Almacenamos toda la información en la variable data
+            data = await cursor.fetchall()
+            if data:
+                # Si existen datos, se creará un embed con toda la información
+                embed = nextcord.Embed(
+                    title= f"<a:_:1062238854586834944> Estos son tus warns {member.name}!",
+                )
+                # Creamos un contador para iterar por todos los warns del miembro
+                numberWarns = 0
+                # Iteramos en los datos capturados para agregarlos al embed
+                for table in data:
+                    numberWarns += 1
+                    embed.add_field(
+                        name=f"Warn {numberWarns}",
+                        value=f"Razón: {table[0]}\nFecha: <t:{int(table[1])}:F>"
+                    )
+                # Detectamos si el miembro está cerca de recibir un ban ejecutando una instrucción SQL para obtener el número de warns
+                await cursor.execute('SELECT COUNT(*) reason FROM warns WHERE member = ? AND guild = ?', (member.id, ctx.guild.id))
+                # Capturamos los datos en la variable data
+                warns = await cursor.fetchone()
+                # Convertimos a tipo de dato entero
+                warns = warns[0]
+                if warns == 3:
+                    # Si el miembro tiene 3 warns, se agrega un pie de página al embed advirtiendo que está cerca de un ban
+                    embed.set_footer(
+                        icon_url= "https://cdn.discordapp.com/attachments/1012130067649921040/1068985824609317034/warning.png",
+                        text="¡Cuidado! Estás a una advertencia de recibir ban"
+                    )
+                # Envíamos el embed al canal donde se ejecutó el comando
+                await ctx.send(embed= embed)
+            else:
+                # Si el usuario no tiene warns, se muestra un embed informando que no hay advertencias
+                await ctx.send("No hay advertencias")
+                embed = nextcord.Embed(
+                    title= f"<a:_:1062238863751385148> No tienes advertencias {member.mention}!",
+                    description= "Todo está tranquilo por aquí, no tienes ninguna advertencia así que mantente con la conciencia despejada, sigue cumpliendo las <#986736827136376882> tal como lo has hecho hasta ahora"
+                )
+                embed.set_author(
+                    name="Moderación de MAPEN Gang",
+                    icon_url= "https://cdn.discordapp.com/attachments/1012130067649921040/1014703404334972948/Logo2022.png",
+                    url="https://www.youtube.com/channel/UC3nQBkZDOemTx3ZHXfLg1ug"
+                )
+                await ctx.send(embed= embed)
+        await bot.db.commit()
+
 
 # Declaramos el método setup que va a cargar el cog (clase Moderacion)
 def setup(bot):
