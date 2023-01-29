@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://www.youtube.com/@MAPENTech/videos"><img src="https://user-images.githubusercontent.com/70863031/214948135-b2b8a4c3-2b54-4238-a90d-0b2515a6f21a.png" alt="MAPENBot - Discord Bot"></a>
+  <a href="https://www.youtube.com/@MAPENTech/videos"><img src="https://user-images.githubusercontent.com/70863031/215304051-109db975-7224-4751-a982-29646b75635f.png" alt="MAPENBot - Discord Bot"></a>
   <br>
   MAPEN Bot
   <br>
@@ -10,6 +10,8 @@
 <h4 align="center">YouTube MAPEN Tech Official Discord Bot</h4>
 
 ---
+| ⚠️ | MAPEN Bot actualmente sigue bajo desarrollo // MAPEN Bot it's on development. |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### <img align="left" alt="Eyes" width="35px" style="padding-right:10px;" src="https://user-images.githubusercontent.com/70863031/214644849-1240d6f2-329f-46a9-8bc4-458d3d215ef8.gif"/> Descripción // Description
 MAPEN Bot es el bot oficial del canal de MAPEN Tech, creado con la finalidad de contar con un bot exclusivo del servidor de Discord del canal de YouTube, incluyendo funciones de moderación y de mensajes de bienvenida. 
@@ -55,3 +57,4 @@ The bot is still in its early stages, but over time, I plan to integrate more fe
 <img align="left" alt="https://www.python.org/" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
 <img align="left" alt="https://docs.nextcord.dev/en/stable/" width="50px" style="padding-right:10px;" src="https://github.com/nextcord/nextcord/blob/master/assets/logo.svg"/>
 <img align="left" alt="https://sqlite.org/index.html" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"/>
+
