@@ -9,6 +9,30 @@
 <h4 align="center">Bot oficial del canal de MAPEN Tech en YouTube</h4>
 <h4 align="center">YouTube MAPEN Tech Official Discord Bot</h4>
 
+<p align = "center">
+ <a href="https://www.python.org/downloads/">
+    <img alt="Python - Python Version" src="https://img.shields.io/github/pipenv/locked/python-version/quiquereds/MAPENBot?style=for-the-badge">
+  </a>
+
+ <a href="https://docs.nextcord.dev/en/stable/">
+    <img alt="NEXTCORD - Discord API" src="https://img.shields.io/github/pipenv/locked/dependency-version/quiquereds/MAPENBot/nextcord?style=for-the-badge">
+  </a>
+  
+  <a href="https://docs.nextcord.dev/en/stable/">
+    <img alt="AIOSQLITE" src="https://img.shields.io/github/pipenv/locked/dependency-version/quiquereds/MAPENBot/aiosqlite?style=for-the-badge">
+  </a>
+</p>
+
+<p align = "center">
+  <a href="https://bit.ly/MAPENDiscord">
+    <img alt="MAPEN Gang" src="https://img.shields.io/discord/986683115701415936?color=purple&label=JOIN%20MAPEN%20GANG&logo=Discord&logoColor=white&style=for-the-badge">
+    
+  <a href="https://www.youtube.com/channel/UC3nQBkZDOemTx3ZHXfLg1ug?sub_confirmation=1">
+    <img alt="MAPEN Tech" src="https://img.shields.io/youtube/channel/subscribers/UC3nQBkZDOemTx3ZHXfLg1ug?color=800020&label=SUBSCRIBE%20&logo=youtube&style=for-the-badge">
+  </a>
+  
+</p>
+
 ---
 | ⚠️ | MAPEN Bot actualmente sigue bajo desarrollo, la documentación en Inglés está pendiente // MAPEN Bot it's on development, English documentation is pending. |
 | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,6 +73,9 @@ The bot is still in its early stages, but over time, I plan to integrate more fe
    - Economy System
    - Music System
    - Webscrapping to extract Amazon promos
+ 
+ 
+<a href='https://ko-fi.com/Y8Y2I90DW' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
   
 ---
  
@@ -57,4 +84,3 @@ The bot is still in its early stages, but over time, I plan to integrate more fe
 <img align="left" alt="https://www.python.org/" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
 <img align="left" alt="https://docs.nextcord.dev/en/stable/" width="50px" style="padding-right:10px;" src="https://github.com/nextcord/nextcord/blob/master/assets/logo.svg"/>
 <img align="left" alt="https://sqlite.org/index.html" width="50px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"/>
-
