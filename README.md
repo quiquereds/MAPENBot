@@ -10,7 +10,7 @@
 <h4 align="center">YouTube MAPEN Tech Official Discord Bot</h4>
 
 ---
-| ⚠️ | MAPEN Bot actualmente sigue bajo desarrollo // MAPEN Bot it's on development. |
+| ⚠️ | MAPEN Bot actualmente sigue bajo desarrollo, la documentación en Inglés está pendiente // MAPEN Bot it's on development, English documentation is pending. |
 | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### <img align="left" alt="Eyes" width="35px" style="padding-right:10px;" src="https://user-images.githubusercontent.com/70863031/214644849-1240d6f2-329f-46a9-8bc4-458d3d215ef8.gif"/> Descripción // Description
