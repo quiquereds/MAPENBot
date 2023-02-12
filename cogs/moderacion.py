@@ -1,4 +1,5 @@
 import nextcord
+import wavelink
 import aiosqlite
 import asyncio
 from bot import bot
@@ -13,6 +14,10 @@ async def addWarn(ctx, reason, member):
         await cursor.execute("INSERT INTO warns (member, reason, time, guild) VALUES (?, ?, ?, ?)", (member.id, reason, int(datetime.datetime.now().timestamp()), ctx.guild.id))
     # Guardamos cambios en la tabla
     await bot.db.commit()
+
+async def node_connect():
+    await bot.wait_until_ready()
+    await wavelink.NodePool.create_node(bot = bot, host = 'lavalink.mariliun.ml', port=443, password= 'lavaliun', https=True)
 
 # Creamos la clase moderación que incluirá todos los comandos de este tipo
 class Moderacion(commands.Cog):
@@ -34,6 +39,7 @@ class Moderacion(commands.Cog):
         async with bot.db.cursor() as cursor:
             await cursor.execute("CREATE TABLE IF NOT EXISTS warns(member INTEGER, reason TEXT, time INTEGER, guild INTEGER)")
         await bot.db.commit()
+        bot.loop.create_task(node_connect())
 
     # Evento para detectar cuando los nuevos miembros se unen al servidor
     @commands.Cog.listener()
@@ -69,6 +75,8 @@ class Moderacion(commands.Cog):
         await channel.send(file=nextcord.File("holaMAPENTech.png"))
         # El bot envía el embed creado al canal definido
         await channel.send(embed = embed)
+        # El bot envía el embed por mensaje directo al usuario
+        await member.send(embed = embed)
 
     # Evento para detectar cuando los usuarios abandonan el servidor
     @commands.Cog.listener()
@@ -97,6 +105,8 @@ class Moderacion(commands.Cog):
         channel = bot.get_channel(1012084418615201822)
         # El bot envía una imágen personalizada del servidor antes del embed
         await channel.send(file=nextcord.File("adiosMAPENTech.png"))
+        # El bot envía el embed por mensaje directo al usuario
+        await member.send(embed = embed)
         # El bot envía el embed creado al canal definido
         await channel.send(embed = embed)
 
@@ -138,6 +148,8 @@ class Moderacion(commands.Cog):
         channel = bot.get_channel(1050231800443715666)
         # El bot envía una imágen personalizada antes del embed
         await channel.send(file=nextcord.File("banMAPENTech.png"))
+        # El bot envía el embed por mensaje directo al usuario
+        await member.send(embed = embed)
         # Se envía el embed
         await channel.send(embed = embed)
 
@@ -174,6 +186,9 @@ class Moderacion(commands.Cog):
         channel = bot.get_channel(1050230733588942868)
         #await channel.send(file=nextcord.File("./media/warnMAPENTech.png"))
         await channel.send(file = nextcord.File("warnMAPENTech.png"))
+        # El bot envía el embed por mensaje directo al usuario
+        await member.send(embed = embed)
+        # El bot envía el embed al canal de warns
         await channel.send(embed = embed)
 
         # Detectamos si el miembro tiene más de 3 advertencias para expulsarlo automáticamente
@@ -277,10 +292,9 @@ class Moderacion(commands.Cog):
                 await ctx.send(embed= embed)
             else:
                 # Si el usuario no tiene warns, se muestra un embed informando que no hay advertencias
-                await ctx.send("No hay advertencias")
                 embed = nextcord.Embed(
-                    title= f"<a:_:1062238863751385148> No tienes advertencias {member.mention}!",
-                    description= "Todo está tranquilo por aquí, no tienes ninguna advertencia así que mantente con la conciencia despejada, sigue cumpliendo las <#986736827136376882> tal como lo has hecho hasta ahora"
+                    title= f"<a:_:1062238863751385148> No tienes advertencias!",
+                    description= f"{member.mention} Todo está tranquilo por aquí, no tienes ninguna advertencia así que mantente con la conciencia despejada, sigue cumpliendo las <#986736827136376882> tal como lo has hecho hasta ahora"
                 )
                 embed.set_author(
                     name="Moderación de MAPEN Gang",
