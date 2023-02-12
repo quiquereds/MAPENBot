@@ -1,5 +1,4 @@
 import nextcord
-import wavelink
 import aiosqlite
 import asyncio
 from bot import bot
@@ -14,10 +13,6 @@ async def addWarn(ctx, reason, member):
         await cursor.execute("INSERT INTO warns (member, reason, time, guild) VALUES (?, ?, ?, ?)", (member.id, reason, int(datetime.datetime.now().timestamp()), ctx.guild.id))
     # Guardamos cambios en la tabla
     await bot.db.commit()
-
-async def node_connect():
-    await bot.wait_until_ready()
-    await wavelink.NodePool.create_node(bot = bot, host = 'lavalink.mariliun.ml', port=443, password= 'lavaliun', https=True)
 
 # Creamos la clase moderación que incluirá todos los comandos de este tipo
 class Moderacion(commands.Cog):
@@ -39,7 +34,6 @@ class Moderacion(commands.Cog):
         async with bot.db.cursor() as cursor:
             await cursor.execute("CREATE TABLE IF NOT EXISTS warns(member INTEGER, reason TEXT, time INTEGER, guild INTEGER)")
         await bot.db.commit()
-        bot.loop.create_task(node_connect())
 
     # Evento para detectar cuando los nuevos miembros se unen al servidor
     @commands.Cog.listener()
