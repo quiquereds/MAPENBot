@@ -18,9 +18,14 @@
     <img alt="NEXTCORD - Discord API" src="https://img.shields.io/github/pipenv/locked/dependency-version/quiquereds/MAPENBot/nextcord?style=for-the-badge">
   </a>
   
-  <a href="https://docs.nextcord.dev/en/stable/">
+ <a href="https://github.com/PythonistaGuild/Wavelink">
+    <img alt="WAVELINK" src="https://img.shields.io/github/pipenv/locked/dependency-version/quiquereds/MAPENBot/wavelink?style=for-the-badge">
+  </a>
+  
+  <a href="https://github.com/omnilib/aiosqlite">
     <img alt="AIOSQLITE" src="https://img.shields.io/github/pipenv/locked/dependency-version/quiquereds/MAPENBot/aiosqlite?style=for-the-badge">
   </a>
+  
 </p>
 
 <p align = "center">
